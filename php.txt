@@ -1,0 +1,103 @@
+<?php
+                $array = array();
+                while ($row = mysqli_fetch_assoc($result)) : ?>
+                <? $arrayInside = array(); ?>
+
+                <?php
+                    $sort = explode(';', $row['nameOfSortandSquare']);
+                    $id = explode(';', $row['idSorts']);
+
+                    for ($i = 0; $i < count($id); $i++) {
+                        array_push($arrayInside, $id[$i]);
+                    }
+                    ?>
+                <? array_push($array, $arrayInside); ?>
+
+
+                <?php endwhile; ?>
+
+
+<?php
+                
+                foreach ($array as $massiv) {
+                    foreach ($massiv  as  $value) {
+                        echo "$value";
+                    }
+                }
+                ?>
+                <?php
+                $newQuery = "SELECT id,nameOfSortandSquare,notSownPartSquare,idSorts FROM fieldnumber9";
+                $newResult = mysqli_query($connection, $newQuery);
+                ?>
+                <?php
+
+                while ($row = mysqli_fetch_array($result)) : ?>
+
+                <?php endwhile; ?>
+
+
+
+
+                // map.on('load', () => {
+        //     // Add a data source containing GeoJSON data.
+        //     map.addSource('maine', {
+        //         'type': 'geojson',
+        //         'data': {
+        //             'type': 'Feature',
+        //             'geometry': {
+        //                 'type': 'Polygon',
+        //                 // These coordinates outline Maine.
+        //                 'coordinates': [
+        //                     [
+        //                         [
+        //                             70.60981750488281,
+        //                             51.25203123874051
+        //                         ],
+        //                         [
+        //                             70.6036376953125,
+        //                             51.24150070353523
+        //                         ],
+        //                         [
+        //                             70.63488006591797,
+        //                             51.235267210116255
+        //                         ],
+        //                         [
+        //                             70.64002990722656,
+        //                             51.24536934359527
+        //                         ],
+        //                         [
+        //                             70.60981750488281,
+        //                             51.25203123874051
+        //                         ]
+        //                     ]
+        //                 ]
+        //             }
+        //         }
+        //     });
+
+        //     // Add a new layer to visualize the polygon.
+        //     map.addLayer({
+        //         'id': 'maine',
+        //         'type': 'fill',
+        //         'source': 'maine', // reference the data source
+        //         'paint': {
+        //             "fill-color": "#d9f50a",
+        //             "fill-opacity": 0.5
+        //         }
+        //     });
+        //     // Add a black outline around the polygon.
+        //     map.addLayer({
+        //         'id': 'outline',
+        //         'type': 'line',
+        //         'source': 'maine',
+        //         'paint': {
+        //             'line-color': "#28e60f",
+        //             'line-width': 2
+        //         }
+        //     });
+
+        // });
+
+        //agro: sanzhar45924
+        db: $connection = mysqli_connect("localhost", "j77847xs_agrodb", "S@nzhar1401", "j77847xs_agrodb");
+        usersInfo: sanzhar45924
